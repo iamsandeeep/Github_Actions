@@ -1,24 +1,33 @@
-name : first one
+name: first one
 
-on : [push, pull_request]
+on: [push, pull_request]
+
 jobs:
   build:
-   runs-on: ubuntu-latest
-   strategy:
+    runs-on: ubuntu-latest
+    strategy:
       matrix:
-        python-version: [3.8, 3.9]
-   steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python environment
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+        python-version: [ 3.8, 3.9]
 
-    - name: Install dependencies
-      run: |
-        pip install --upgrade pip
-        pip install pytest
-    - name: Run tests
-      run: |
-        cd src
-        python -m pytest calc.py
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Clear pip cache
+        run: pip cache purge
+
+      - name: Upgrade pip
+        run: timeout 60s python -m pip install --upgrade pip || echo "pip upgrade timed out"
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests
+        run: |
+          cd src
+          python -m pytest calc.py
+
