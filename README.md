@@ -1,4 +1,4 @@
-# ![GitHub Actions](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png) GitHub-Actions-Demo  
+# <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="50" height="50" alt="GitHub Actions Logo"> GitHub-Actions-Demo  
 
 ## Introduction
 Welcome to the **GitHub-Actions-Demo** repository! This serves as a starting point to help you explore and implement GitHub Actions for automating workflows within your GitHub projects.
