@@ -1,5 +1,21 @@
+# calc.py
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error! Division by zero."
+    return a / b
+
+# ✅ Pytest Test Cases
 import pytest
-from calc import add, subtract, multiply, divide
 
 def test_add():
     assert add(10, 5) == 15
